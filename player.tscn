@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://b4u7mt07h7iy4"]
+
+[ext_resource type="Script" uid="uid://b8xd2v1vxtaa7" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://8q15dc6xf55u" path="res://sprites/fall1.png" id="2_606se"]
+[ext_resource type="Texture2D" uid="uid://dh14h28aqu7nx" path="res://sprites/run1.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://conoeetvemm3c" path="res://sprites/waiting1.png" id="2_nvl01"]
+[ext_resource type="Texture2D" uid="uid://hwcacpukj3nq" path="res://sprites/player_explode2.png" id="2_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://bfcknh50p2mm3" path="res://sprites/player_explode3.png" id="3_5tmop"]
+[ext_resource type="Texture2D" uid="uid://x8qor6pt52uq" path="res://sprites/run2.png" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://q7tk0hkq6tgw" path="res://sprites/waiting2.png" id="3_ivps1"]
+[ext_resource type="Texture2D" uid="uid://ccsrip3rwc7km" path="res://sprites/fall2.png" id="3_u1c27"]
+[ext_resource type="Texture2D" uid="uid://cndtfwwatp3fb" path="res://sprites/player_explode4.png" id="4_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://qi8en3gocy7o" path="res://sprites/waiting3.png" id="4_urp6f"]
+[ext_resource type="Texture2D" uid="uid://bfjesonn7bqb5" path="res://sprites/player_explode5.png" id="5_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://bueb3fullohm" path="res://sprites/waiting4.png" id="5_bwjto"]
+[ext_resource type="Texture2D" uid="uid://5f2b23l6wrli" path="res://sprites/waiting5.png" id="6_606se"]
+[ext_resource type="Texture2D" uid="uid://868l3a8u155n" path="res://sprites/waiting6.png" id="7_u1c27"]
+[ext_resource type="Texture2D" uid="uid://btvbl02m0c3t4" path="res://sprites/waiting7.png" id="8_op7ga"]
+[ext_resource type="Texture2D" uid="uid://dodlctyhch40m" path="res://sprites/waiting8.png" id="9_q13i1"]
+[ext_resource type="Texture2D" uid="uid://jemplbu2hjau" path="res://sprites/jump1.png" id="10_urp6f"]
+[ext_resource type="Texture2D" uid="uid://d3gcqjey26dlo" path="res://sprites/jump2.png" id="11_bwjto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(5.9333334, 6.866667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7lmhl")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u1c27")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q13i1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bwjto")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hqtel")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=2022236672 groups=["player"]]
+scale = Vector2(15, 15)
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=144781066]
+position = Vector2(-0.5000003, -1.0333334)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=837719582]
+position = Vector2(-0.5, -0.5)
+sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"death"
